@@ -90,19 +90,22 @@ public class LinkedList<T> {
 	/**
 	 * Added : Search operation Function
 	 * @param data 
+	 * @return 
 	 */
 	
-	public void SearchOperation (T data ) {
-		MyNode<T> P = head;
-		P.data=data;
-		while(P !=null) {
-			if(P.data==data) {
+	public MyNode<T> searchOperation (T data ) {
+		MyNode<T> node = new MyNode<>();
+		node=head;
+	
+		while(node.data != data) {
+			node=node.next;
 				System.out.println("Element Found : " +data);
 				break;
 			}
-			P=P.next;
+		return node;
+
 		}
-	}
+	
 	
 	/**
 	 * @show is a method for Printing The Data Of Node till next equal to null
@@ -113,7 +116,7 @@ public class LinkedList<T> {
 		while (node.next != null) {
 			System.out.println(node.data);
 			node = node.next;
-			;
+			
 		}
 		System.out.print(node.data);
 	}
