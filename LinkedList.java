@@ -96,16 +96,29 @@ public class LinkedList<T> {
 	public MyNode<T> searchOperation (T data ) {
 		MyNode<T> node = new MyNode<>();
 		node=head;
-	
 		while(node.data != data) {
 			node=node.next;
 				System.out.println("Element Found : " +data);
 				break;
 			}
 		return node;
-
 		}
 	
+	/**
+	 * @param data is previous node key value
+	 * @param Added_Data is New Key value at previous node key value
+	 */
+	public void findNodeAddData(T data, T AddedData) {
+		MyNode<T> node = searchOperation(data);
+		MyNode<T> newNode = new MyNode<T>();
+		newNode=head;
+		int count=1;
+		while(node != newNode) {
+			newNode=newNode.next;
+			count++;
+		}
+		addAtIndex(count, AddedData);
+	}
 	
 	/**
 	 * @show is a method for Printing The Data Of Node till next equal to null
