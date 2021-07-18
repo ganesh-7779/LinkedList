@@ -86,7 +86,24 @@ public class LinkedList<T> {
 		}
 		PreviousNode.next = null;
 	}
-
+	
+	/**
+	 * Added : Search operation Function
+	 * @param data 
+	 */
+	
+	public void SearchOperation (T data ) {
+		MyNode<T> P = head;
+		P.data=data;
+		while(P !=null) {
+			if(P.data==data) {
+				System.out.println("Element Found : " +data);
+				break;
+			}
+			P=P.next;
+		}
+	}
+	
 	/**
 	 * @show is a method for Printing The Data Of Node till next equal to null
 	 */
