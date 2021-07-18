@@ -76,7 +76,7 @@ public class LinkedList<T> {
 	/**
 	 * Delete Last Node Operation
 	 */
-	
+
 	public void deleteLast() {
 		MyNode<T> node = head;
 		MyNode<T> PreviousNode = head;
@@ -86,40 +86,73 @@ public class LinkedList<T> {
 		}
 		PreviousNode.next = null;
 	}
-	
+
 	/**
 	 * Added : Search operation Function
-	 * @param data 
-	 * @return 
+	 * @param data
+	 * @return
 	 */
-	
-	public MyNode<T> searchOperation (T data ) {
+
+	public MyNode<T> searchOperation(T data) {
 		MyNode<T> node = new MyNode<>();
-		node=head;
-		while(node.data != data) {
-			node=node.next;
-				System.out.println("Element Found : " +data);
-				break;
-			}
-		return node;
+		node = head;
+		while (node.data != data) {
+			node = node.next;
+			System.out.println("Element Found : " + data);
+			break;
 		}
-	
+		return node;
+	}
+
 	/**
-	 * @param data is previous node key value
+	 * @param data       is previous node key value
 	 * @param Added_Data is New Key value at previous node key value
 	 */
 	public void findNodeAddData(T data, T AddedData) {
 		MyNode<T> node = searchOperation(data);
 		MyNode<T> newNode = new MyNode<T>();
-		newNode=head;
-		int count=1;
-		while(node != newNode) {
-			newNode=newNode.next;
+		newNode = head;
+		int count = 1;
+		while (node != newNode) {
+			newNode = newNode.next;
 			count++;
 		}
 		addAtIndex(count, AddedData);
 	}
-	
+
+	/**
+	 * @param Remove data by using index value
+	 */
+	public void deleteAt(int index) {
+		if (index == 0) {
+			head = head.next;
+		} else {
+			MyNode<T> node = head;
+			MyNode<T> PreviousNode = null;
+			for (int i = 0; i < index - 1; i++) {
+				node = node.next;
+			}
+			PreviousNode = node.next;
+			node.next = PreviousNode.next;
+		}
+	}
+
+	public int size() {
+		MyNode<T> node = head;
+		int count = 0;
+		if (node != null) {
+			while ((node.next != null) || (node.data != null)) {
+				node = node.next;
+				count++;
+				if (node == null) {
+					break;
+				}
+			}
+			System.out.println("Size Of Linked List is : " +count);
+		}
+		return count;
+	}
+
 	/**
 	 * @show is a method for Printing The Data Of Node till next equal to null
 	 */
@@ -129,7 +162,7 @@ public class LinkedList<T> {
 		while (node.next != null) {
 			System.out.println(node.data);
 			node = node.next;
-			
+
 		}
 		System.out.print(node.data);
 	}
