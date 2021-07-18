@@ -16,7 +16,10 @@ public class Runner<T> {
 		obj.add(56);
 		obj.add(70);
 		obj.addAtIndex(1, 30);
-		obj.SearchOperation(30);
+		obj.findNodeAddData(30, 40);
+		obj.deleteAt(2);
 		obj.show();
+		System.out.println();
+		obj.size();
 	}
 }
