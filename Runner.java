@@ -16,6 +16,7 @@ public class Runner<T> {
 		obj.add(56);
 		obj.add(70);
 		obj.addAtIndex(1, 30);
+		obj.deleteFirst();
 		obj.show();
 	}
 }
