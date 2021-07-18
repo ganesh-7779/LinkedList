@@ -29,7 +29,18 @@ public class LinkedList<T> {
 			node.next = newNode;
 		}
 	}
-
+	
+	/**
+	 * @param Node data added at Start
+	 * @return 
+	 */
+	public  void addAtStart (T data) {
+		MyNode<T> node =new MyNode<>();
+		node.data=data;
+		node.next=head;
+		head=node;
+	}
+	
 	/**
 	 * @show is a method for Printing The Data Of Node till next equal to null
 	 */
@@ -37,9 +48,9 @@ public class LinkedList<T> {
 		MyNode<T> node = head;
 		while (node.next != null) {
 			System.out.println(node.data);
-			node = node.next;
+			node=node.next;;
 		}
-		System.out.println(node.data);
+		System.out.print(node.data);
 	}
-
+	
 }
